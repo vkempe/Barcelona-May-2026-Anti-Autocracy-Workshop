@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safeguarding Scholarship — Pre-Workshop Questionnaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #FAF8F4;
+      --sand:     #F0ECE4;
+      --ink:      #2C2926;
+      --muted:    #6B6560;
+      --accent:   #B85C38;
+      --accent-light: #D4896A;
+      --border:   #D6D1CA;
+      --white:    #FFFFFF;
+      --success:  #4A7C59;
+      --radius:   6px;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ---- top accent bar ---- */
+    .top-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+    }
+
+    /* ---- container ---- */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* ---- header ---- */
+    .header {
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      font-size: 1.65rem;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .header .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .header .subtitle span {
+      color: var(--accent);
+    }
+
+    /* ---- intro prose ---- */
+    .intro {
+      font-size: 0.935rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro p { margin-bottom: 0.85rem; }
+    .intro p:last-child { margin-bottom: 0; }
+    .intro .sign-off {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* ---- form ---- */
+    .question-group {
+      margin-bottom: 1.6rem;
+    }
+
+    .question-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.935rem;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+    }
+
+    .question-group label .q-num {
+      display: inline-block;
+      width: 1.5rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .question-group .hint {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 0.45rem;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.935rem;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.6rem 0.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(184, 92, 56, 0.12);
+    }
+
+    textarea { resize: vertical; min-height: 80px; }
+
+    /* radio group for Q5 */
+    .radio-group {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 0.2rem;
+    }
+
+    .radio-group label {
+      font-weight: 400;
+      font-size: 0.935rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+    }
+
+    .radio-group input[type="radio"] {
+      accent-color: var(--accent);
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+    }
+
+    /* ---- chatham house box ---- */
+    .chatham-box {
+      background: var(--sand);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.87rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-top: 2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .chatham-box strong {
+      color: var(--ink);
+    }
+
+    /* ---- submit ---- */
+    .submit-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    button[type="submit"] {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.65rem 1.8rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button[type="submit"]:hover { background: #A04F2F; }
+    button[type="submit"]:active { transform: scale(0.98); }
+    button[type="submit"]:disabled {
+      background: var(--border);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status-msg {
+      font-size: 0.87rem;
+      font-weight: 500;
+    }
+
+    .status-msg.sending { color: var(--muted); }
+    .status-msg.success { color: var(--success); }
+    .status-msg.error   { color: #B83838; }
+
+    /* ---- success overlay ---- */
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .success-card .check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      background: var(--success);
+      color: var(--white);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-card h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-card p {
+      color: var(--muted);
+      font-size: 0.935rem;
+    }
+
+    /* ---- responsive ---- */
+    @media (max-width: 520px) {
+      .container { padding: 1.5rem 1rem 2rem; }
+      .header h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Safeguarding Scholarship in Emerging Autocracies</h1>
+    <div class="subtitle">Pre-workshop questionnaire · <span>APS Barcelona · 28 May 2026</span></div>
+  </header>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p>We, the workshop organisers, are gathering some information to help us tailor the session to the audience's expectations and needs. The information you provide below will be stored temporarily in a Google Sheet and deleted after the workshop, following guidance by European data protection regulation. Anonymised content (e.g. an aggregate summary of main concerns) may be mentioned in our high-level after-workshop summary.</p>
+    <p>Feel free to leave any questions open that you do not wish to answer, especially if you feel that an answer may compromise your anonymity. You will still be able to attend the workshop if you do not fill in this short questionnaire.</p>
+    <p class="sign-off">We look forward to seeing you in Barcelona!<br>– Steve, Christina &amp; Vera</p>
+  </div>
+
+  <!-- FORM -->
+  <form id="questionnaire" autocomplete="off">
+
+    <div class="question-group">
+      <label for="q1"><span class="q-num">1.</span> Which country do you work in?</label>
+      <input type="text" id="q1" name="country" placeholder="e.g. Germany">
+    </div>
+
+    <div class="question-group">
+      <label for="q2"><span class="q-num">2.</span> What are your main concerns about academia during current political transformations?</label>
+      <textarea id="q2" name="concerns" rows="3" placeholder="Your thoughts…"></textarea>
+    </div>
+
+    <div class="question-group">
+      <label for="q3"><span class="q-num">3.</span> What do you hope to gain from this workshop?</label>
+      <textarea id="q3" name="hopes" rows="3" placeholder="Your thoughts…"></textarea>
+    </div>
+
+    <div class="question-group">
+      <label for="q4"><span class="q-num">4.</span> Have you had specific experiences of your scholarship being affected by democratic backsliding?</label>
+      <textarea id="q4" name="experiences" rows="3" placeholder="Your thoughts…"></textarea>
+    </div>
+
+    <div class="question-group">
+      <label for="q5"><span class="q-num">5.</span> Do you have any relevant expertise that you can contribute to the workshop?</label>
+      <textarea id="q5" name="expertise" rows="3" placeholder="Your thoughts…"></textarea>
+    </div>
+
+    <div class="question-group">
+      <label><span class="q-num">6.</span> Would you be prepared to share your experiences at the workshop?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="share" value="Yes"> Yes</label>
+        <label><input type="radio" name="share" value="Perhaps"> Perhaps</label>
+        <label><input type="radio" name="share" value="No"> No</label>
+        <label><input type="radio" name="share" value="Not applicable"> N/A</label>
+      </div>
+    </div>
+
+    <!-- CHATHAM HOUSE NOTICE -->
+    <div class="chatham-box">
+      <strong>Chatham House Rule</strong> — To create a safe atmosphere we ask you outside of the workshop not to attribute statements, opinions and experiences shared at the workshop to specific individuals.
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" id="submitBtn">Submit</button>
+      <span class="status-msg" id="status"></span>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS STATE (replaces form) -->
+  <div class="success-card" id="successCard">
+    <div class="check">✓</div>
+    <h2>Thank you!</h2>
+    <p>Your responses have been recorded.<br>We look forward to seeing you in Barcelona.</p>
+  </div>
+
+</div>
+
+<script>
+  // ──────────────────────────────────────────────
+  //  PASTE YOUR GOOGLE APPS SCRIPT WEB-APP URL ↓
+  // ──────────────────────────────────────────────
+  const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+  // ──────────────────────────────────────────────
+
+  const form      = document.getElementById("questionnaire");
+  const submitBtn = document.getElementById("submitBtn");
+  const status    = document.getElementById("status");
+  const success   = document.getElementById("successCard");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (APPS_SCRIPT_URL.includes("PASTE_YOUR")) {
+      status.className = "status-msg error";
+      status.textContent = "Apps Script URL not configured — see setup instructions.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    status.className = "status-msg sending";
+    status.textContent = "Sending…";
+
+    const shareEl = document.querySelector('input[name="share"]:checked');
+
+    const payload = {
+      country:     document.getElementById("q1").value.trim(),
+      concerns:    document.getElementById("q2").value.trim(),
+      hopes:       document.getElementById("q3").value.trim(),
+      experiences: document.getElementById("q4").value.trim(),
+      share:       shareEl ? shareEl.value : "",
+      expertise:   document.getElementById("q5").value.trim()
+    };
+
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",          // Apps Script doesn't return CORS headers
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload)
+      });
+
+      // mode: no-cors means we can't read the response,
+      // so we assume success if no error was thrown.
+      form.style.display = "none";
+      success.style.display = "block";
+
+    } catch (err) {
+      status.className = "status-msg error";
+      status.textContent = "Something went wrong — please try again.";
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
